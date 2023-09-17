@@ -31,7 +31,7 @@ jobs:
         uses: google-github-actions/get-secretmanager-secrets@v1
         with:
           secrets: |-
-            firebase-token:nitraai/firebase-token
+            firebase-token:nitraai/firebase-token/1
 
       - name: Build
         uses: Tiryoh/actions-mkdocs@v0
