@@ -22,13 +22,13 @@ jobs:
 
       - id: "auth"
         name: "Authenticate to Google Cloud"
-        uses: "google-github-actions/auth@v0"
+        uses: "google-github-actions/auth@v1"
         with:
           workload_identity_provider: "projects/753698311885/locations/global/workloadIdentityPools/github-pool/providers/github-provider"
           service_account: "github-service-account@nitraai.iam.gserviceaccount.com"
 
       - id: secrets
-        uses: google-github-actions/get-secretmanager-secrets@main
+        uses: google-github-actions/get-secretmanager-secrets@v1
         with:
           secrets: |-
             firebase-token:nitraai/firebase-token
