@@ -1,0 +1,27 @@
+{
+  "name": "outline-webhook",
+  "version": "1.0.5",
+  "main": "src/index.js",
+  "author": "<ai@nitra.ai>",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --watch src",
+    "start-remote": "env $(cat .env.remote .env.remote.secret) node --watch src"
+  },
+  "dependencies": {
+    "@nitra/cf-security": "^2.0.50",
+    "@nitra/check-env": "^2.0.2",
+    "@nitra/fastify": "^1.5.2",
+    "content-type": "^1.0.5",
+    "tiny-lru": "^11.0.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@nitra/eslint-config/node"
+    ]
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "mk-site",
+  "version": "1.0.0",
+  "repository": "https://github.com/nitra/mk-site.git",
+  "author": "vitaliytv <vitaliytv@nitralabs.com>",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "run/*"
+  ],
+  "devDependencies": {
+    "@cspell/dict-ru_ru": "^2.0.5",
+    "@cspell/dict-uk-ua": "^3.0.0",
+    "@nitra/cspell-dict": "^1.0.107",
+    "@nitra/eslint-config": "^1.0.34",
+    "@nitra/prettier-config": "^1.0.1",
+    "@nitra/stylelint-config": "^1.0.2"
+  },
+  "prettier": "@nitra/prettier-config",
+  "stylelint": {
+    "extends": "@nitra/stylelint-config"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@nitra"
+    ],
+    "root": true
+  },
+  "packageManager": "yarn@3.6.3"
+}

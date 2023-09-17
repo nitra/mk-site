@@ -1,0 +1,56 @@
+{
+  "id": "89a18d04-6442-4d8a-b4a2-dcfb9ccda304",
+  "actorId": "43363305-168a-401c-9fb6-6edae4e15d13",
+  "webhookSubscriptionId": "8fb6930a-defe-413d-8c49-ae92d54a7a06",
+  "createdAt": "2023-09-17T18:41:30.640Z",
+  "event": "documents.update",
+  "payload": {
+    "id": "49ba8a85-f898-4da1-b8c7-1e88568d82a8",
+    "model": {
+      "id": "49ba8a85-f898-4da1-b8c7-1e88568d82a8",
+      "url": "/doc/rizni-raneri-ri41nCQSz6",
+      "urlId": "ri41nCQSz6",
+      "title": "Різні ранери",
+      "emoji": null,
+      "text": "# Задача:\n
+        '\n
+        'Запускати різні ранери в залежності від гілки, в якій запущено екшен.\n
+        '\n
+        '# Рішення\n
+        '\n
+        'В атрибуті `runs-on` можна описати умову запуску, наприклад так:\n
+        '\n
+        '```yaml\n
+        'name: run-test\n
+        '\n
+        'jobs:\n
+        '  run-test:\n
+        '    runs-on: ${{ github.ref == 'refs/heads/ua' && 'ubuntu-latest' || 'ubuntu-18.04' }}\n
+        '    steps:\n
+        '      - name: Extract branch name\n
+        '        shell: bash\n
+        '        run: echo ${GITHUB_REF#refs/heads/} \n
+        '```\n
+        '\n
+        '\\\n
+        '\\#GithubActions",
+      "tasks": [],
+      "createdAt": "2023-07-22T17:14:26.381Z",
+      "createdBy": [],
+      "updatedAt": "2023-09-17T18:41:30.606Z",
+      "updatedBy": [],
+      "publishedAt": "2023-07-22T17:14:41.106Z",
+      "archivedAt": null,
+      "deletedAt": null,
+      "teamId": "f06b33bf-ba59-45a6-95cb-024270584a64",
+      "template": false,
+      "templateId": null,
+      "collaboratorIds": [],
+      "revision": 4,
+      "insightsEnabled": true,
+      "fullWidth": false,
+      "collectionId": "6708fe89-670a-4067-a0c6-372fb35c060e",
+      "parentDocumentId": "1adc74b9-8eb9-4930-b349-d6121de2ca7c"
+    }
+  }
+}
