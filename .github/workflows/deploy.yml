@@ -1,0 +1,47 @@
+name: deploy-site
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  deploy-site:
+    runs-on: ubuntu-latest
+
+    # Add "id-token" with the intended permissions.
+    permissions:
+      contents: "read"
+      id-token: "write"
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - id: "auth"
+        name: "Authenticate to Google Cloud"
+        uses: "google-github-actions/auth@v0"
+        with:
+          workload_identity_provider: "projects/753698311885/locations/global/workloadIdentityPools/github-pool/providers/github-provider"
+          service_account: "github-service-account@nitraai.iam.gserviceaccount.com"
+
+      - id: secrets
+        uses: google-github-actions/get-secretmanager-secrets@main
+        with:
+          secrets: |-
+            firebase-token:nitraai/firebase-token
+
+      - name: Build
+        uses: Tiryoh/actions-mkdocs@v0
+
+      - name: Deploy
+        env:
+          MESSAGE: "${{ github.event.commits[0].message }}"
+        run: >-
+          firebase deploy
+          --only hosting
+          --token ${{ steps.secrets.outputs.firebase-token }}
+          --project nitraai
+          --message "$(echo "${{ env.MESSAGE }}" | head -1)"

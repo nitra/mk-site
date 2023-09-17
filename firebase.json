@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "site": "mk-site",
+    "public": "site",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
